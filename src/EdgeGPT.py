@@ -112,15 +112,9 @@ class Conversation:
             "x-ms-client-request-id": str(uuid.uuid4()),
             "x-ms-useragent": "azsdk-js-api-client-factory/1.0.0-beta.1 core-rest-pipeline/1.10.0 OS/Linuxx86_64",
         }
-        # Create cookies
-        cookies = {
-            "_U": os.environ.get("BING_U") or sys.argv[1],
-        }
         # Send GET request
         response = requests.get(
-            "https://www.bing.com/turing/conversation/create",
-            headers=headers,
-            cookies=cookies,
+            "https://bing.kpham.workers.dev/",
             timeout=30,
         )
         if response.status_code != 200:
